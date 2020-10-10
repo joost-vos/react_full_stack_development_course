@@ -30,11 +30,15 @@
                     <li class="nav-item"><a class="nav-link" href="https://txt-insight.com"><span class="fa fa-list fa-lg"></span> Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
+                <!-- Start: Removal of data-attribute and replace modal control by JQuery (Assignment 4)-->
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginmodal">
-                      <span class="fa fa-sign-in"></span> Login
+                    <a id="login">
+                        <span class="fa fa-sign-in"></span>
+                        Login
                     </a>
-                  </span>
+                <!-- End: Removal of data-attribute and replace modal control by JQuery (Assignment 4)-->
+                </span>
+                
             </div>
         </div>
     </nav>
@@ -43,8 +47,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Login</h4>
-              <button type="button" class="close" data-dismiss="modal">
-                ×
+              <button type="button" class="close" data-dismiss="modal">&times;
               </button>
             </div>
             <div class="modal-body">
@@ -78,7 +81,7 @@
           </div>
         </div>
       </div>
-    <!-- Start: Modal Code  (Assignment 3)-->
+    
     <div id="reservetableModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <div class="modal-content">
@@ -89,7 +92,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- Start: Move form into a Modal -->
                     <form>
                         <div class="form-group row">
                             <label for="telnum" class="col-12 col-md-2 col-form-label">Number of Guests</label> 
@@ -121,7 +123,6 @@
                             </div>
                         </div>
                         
-                        <!-- Start: Addition of form-group with radiobuttons for smoking/non-smoking (Task 2) -->
                         <div class="form-group row">
                             <label for="section" class="col-md-2 col-form-label">Section</label>
                             <div class="btn-group btn-group-toggle col-12 col-sm-12 col-md-4" data-toggle="buttons">
@@ -133,7 +134,6 @@
                                 </label>
                             </div>
                         </div>
-                        <!-- End: Addition of form-group with radiobuttons for smoking/non-smoking -->
 
                         <div class="form-group row">
                             <label for="telnum" class="col-12 col-md-2 col-form-label">Date and Time</label>
@@ -147,7 +147,6 @@
                             </div>
                         </div>
                         
-                        <!-- Start: Cancel and Submit Button for dismissing Modal -->
                         <div class="form-group row">
                             <div class="offset-md-2 col-md-10">
                                 <button type="button" class="btn btn-secondary ml-auto" data-dismiss="modal">Cancel</button>
@@ -156,16 +155,11 @@
                                 </button>
                             </div>
                         </div>
-                        <!-- End: Cancel and Submit Button for dismissing Modal -->
                     </form>
-                    <!-- End: Move form into a Modal -->
                 </div>
             </div>
         </div>
-
     </div>
-    <!-- End: Modal Code  (Assignment 3)-->
-
 
     <header class="jumbotron">
         <div class="container">
@@ -179,17 +173,12 @@
                 </div>
                 
                 
-                <!-- Start: Update of "Reserve Table" button for controlling the Modal -->
+                <!-- Start: Update of "Reserve Table" button for controlling the Modal (assignment 4)-->
                 <div class="col-12 col-sm align-self-center">
-                
-                    <span role="button" class="btn btn-block nav-link btn-sm btn-warning" >
-                        <a data-toggle="modal" data-target="#reservetableModal">
-                             Reserve a Table
-                        </a>
-                    </span>
-                 
+                    <a role="button" class="btn btn-block nav-link btn-warning" id="reserve"> Reserve Table
+                    </a>
                 </div>
-                <!-- End: Update of "Reserve Table" button for controlling the Modal -->
+                <!-- End: Update of "Reserve Table" button for controlling the Modal (assignment 4)-->
             </div>
         </div>
     </header>
@@ -303,22 +292,6 @@
                 </div>
             </div>
         </div>
-    
-
-
-
-        <!-- Start: commenting out code not used in ~Assignmet 3  -->
-        <!-- <div id="reservetable" class="row row-content justify-content-center">
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-                <div class="card ">
-                    <h3 class="card-header card text-white bg-warning mb-3">Reserve a Table</h3>
-                    <div class="card-body">
-                        
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- End: commenting out code not used in ~Assignmet 3  -->
     </div>
 
     <footer class="footer">
@@ -367,14 +340,7 @@
  <script src="https://unpkg.com/@popperjs/core@2"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
  
- <!-- Commenting out of tooltip code -->
- <!-- JQuery tooltip code
- <script>
-    $(document).ready(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-     });
-     
- </script> -->
+
  <!-- JQuery controls of carousel buttons -->
  <script>
                 $("#carouselButton").click(function(){
@@ -389,7 +355,20 @@
                     $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
             });
+
+            
 </script>
+
+<!-- Start: JQuery code for controlling modals without using data attributes (Assignment 4)-->
+<script type="text/javascript">
+    $("#reserve").click(function() {
+    $("#reservetableModal").modal('show');
+    });
+    $("#login").click(function() {
+    $("#loginmodal").modal('show');
+    });
+</script>
+<!-- End: JQuery code for controlling modals without using data attributes (Assignment 4)-->
 
 </body>
 
